@@ -1,0 +1,13 @@
+name: final-project-HateCrimes
+title: final-project-HateCrimes
+username:
+account: miyasm2
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2410418
+bundleId: 3230045
+url: https://miyasm2.shinyapps.io/final-project-HateCrimes/
+when: 1591308174.34671
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|index.Rmd|LICENSE|README.md|rubrics/brainstorm-deliverable.md|rubrics/final-deliverable.md|rubrics/midpoint-deliverable.md

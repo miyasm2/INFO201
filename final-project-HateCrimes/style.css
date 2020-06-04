@@ -1,0 +1,50 @@
+h4 {
+  font-family: 'Cardo';
+  font-weight: bold;
+}
+
+h2{
+  font-family: 'Cardo';
+  color: #7575a3;
+  font-weight: bold;
+
+  
+  
+}
+
+h1 {
+  color:#3d3d5c;
+  font-family: 'Cardo';
+  font-weight: bold;
+}
+
+#title {
+  font-family: 'Cardo';
+}
+
+#widget {
+  font-family: 'Cardo';
+  color: orange;
+}
+
+
+#title {
+  color: #3d3d5c;
+  font-family: 'Cardo';
+  font-size: 25px;
+  font-weight: bold;
+}
+
+h3 {
+  color: #7575a3; 
+  font-family: 'Cardo';
+  font-size: 16px;
+  font-weight: bold;
+}
+
+p {
+  font-family: 'Cardo';
+  font-size: 15px;
+  
+}
+

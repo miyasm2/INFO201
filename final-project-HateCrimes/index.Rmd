@@ -1,0 +1,70 @@
+---
+title: "Midpoint Deliverable"
+author: "Lynn, Zubaida, Kaitlyn, Megan"
+date: "5/12/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+library(leaflet)
+library(plotly)
+source("scripts/summary_info.R")
+source("scripts/summary_table.R")
+source("scripts/chart_3.R")
+source("scripts/bar_chart.R")
+source("scripts/chart.R")
+```
+
+## Introduction
+We are interested in hate crimes because of the rising rate of hate crimes against Asian Americans due to COVID-19. Throughout history, it has become clear that due to certain tragic events, racial, religious, ethnic, and sexually diverse groups (among others) who seem closely related to those events are subjected to hate crimes. For example, after the bombing of Pearl Harbor, Japanese Americans suffered ridicule and hate crimes for years after the war had ended. As a group, we have picked one year-- 2013-- and we have found a database that goes over hate crimes that occurred within that year in detail. Detailing what state it was in as well as what type of crime was it (race, religion, ect.) in addition to the specific location and date. 
+
+
+## Summary Information
+[Original data source](https://github.com/emorisse/FBI-Hate-Crime-Statistics/blob/master/2013/table13.csv)
+```{r summary info, echo = FALSE, include = TRUE}
+hatecrime_2013 <- read.csv("data/hate-crime-in-13.csv")
+summary <- get_summary_info(hatecrime_2013)
+```
+  This database provides all data on the hate crimes in the US in the year 2013. From this database we were able to ascertain that there were `r summary$all_crime` hate crimes alone in the year of 2013. When we broke it down futher, the total number of hate crimes due to race were `r summary$race_crime`, religion were `r summary$religion_crime`, sexual orientation were `r summary$sex_ori_crime`, ethnicity were `r summary$ethnic_crime`, disability `r summary$disable_crime`, gender `r summary$gender_crime`, and lastly the total due to gender identity were `r summary$g_iden_crime`. The state most impacted by hate crimes was `r summary$state_most_impact`. We would like to clarify that, most impacted is defined as most number of total crimes that occurred within a state. Out of all types of agencies such as cities, Universities and Colleges, Metropolitan Counties, and so on, the most impacted agency was `r summary$agency_most_impact`. 
+
+## Summary Table
+Below is a summary table of all 50 states, including DC, and excluding Hawaii, as there were no hate crimes reported there in 2013. As a group we wanted to see the total number of hate crimes that were reported in the each state during the year of 2013. From this table we can see that California has the most hate crimes while Wyoming has the least at 1. Though technically Hawaii has the least because that state has 0 hate crimes.
+
+```{r summary table, echo = FALSE}
+get_summary_table(hatecrime_2013)
+```
+
+The summary table shows that California did indeed have the most hate crimes, but by a very large range, the next closes reported hate crime state in the year 2013 was New York. We know that many hate crimes can go unreported but it is still alarming to see such high numbers in only one state. 
+
+## Chart 1: Line Graph
+This chart below shows the number of hate crimes that occurred per quarter in 2013. The line chart also tracks the the changes in hate crime frequency over the four quarters and seeks to reveal when the quarterly crime rates tend to increase or decrease.
+
+```{r line chart, echo = FALSE}
+quarterly_crimes_chart(hatecrime_2013)
+```
+
+From this line chart, we see that during the 2nd and 3rd quarter there is a spike in the number of hate crimes. One of the reason for this spike could be contibuted to the Boston Bombing on April 15, 2013. There are also events that could have sparked hate crimes suchs as Chelsea Manning Trial, and even Congress dropping approval rate as well as government shutdown.  
+
+## Chart 2: Scatter plot 
+The chart below shows the number of total hate crimes that occured per state in 2013. Total hate crimes includes hate crimes based off of disability, ethnicity, gender, gender identity, race, and sexual orientation.
+
+```{r dot chart, echo = FALSE}
+crimes_by_state_chart(hatecrime_2013)
+```
+
+A scatter plot was chosen for this data because it was categorical data looking at only two factors, states and their hate crimes. In addition, it's fairly easy to see which states had a higher number of hate crimes than others. As seen in the graph, California has a significantly greater amount of hate crimes than any other state while states like Wyoming and Alaska have almost none. Many of the states in this chart with a high number of hate crimes have highly populated cities, so it can be inferred that states with major cities had more hate crimes occur this year.
+
+## Chart 3: Bar Chart
+The chart below displays the number of each category of hate crimes commited overall. The bar chart displays the totals of each category throughout all states and over the course of 2013 with the purpose of seeing what categories of hate crimes were most prominent overall. 
+
+```{r bar chart, echo = FALSE, warning = FALSE}
+total_crimes_categories(hatecrime_2013)
+```
+Here we see the spike in racial hate crimes, but what is intersting is seeing the occurences of hate crimes against sexual orientation spike as well. The year 2013 was when laws gay marriage were beginning to change as through the court ruling of United States v. Windsor. Thus, possibly more people felt safer coming out.  
+
+
+
